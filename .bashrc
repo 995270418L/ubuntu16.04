@@ -118,8 +118,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias python='/usr/bin/python3.5'
-alias idea='/home/liu/Softwares/idea-IU-163.10154.41/bin/idea.sh'
+alias idea='/home/liu/Softwares/idea-IU-171.3780.107/bin/idea.sh'
+alias grip='/home/liu/Softwares/DataGrip-2017.1/bin/datagrip.sh'
 JAVA_HOME=${ST_HOME}/jdk1.8.0_101
 export PATH=${ST_HOME}/wps-office_10.1.0.5672~a21_x86_64:${ST_HOME}:${JAVA_HOME}/bin:${ST_HOME}/eclipse:${ST_HOME}/android-studio/bin:~/Android/Sdk/platform-tools:${ST_HOME}/navicat:~/Softwares/maven-3.3.9/bin:$PATH
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -127,6 +127,6 @@ export PATH=${M3_HOME}/bin:${ST_HOME}/scala-2.12.1/bin:$PATH
 export PATH=${ST_HOME}/mongodb-linux-x86_64-ubuntu1604-3.2.10/bin:$PATH
 export PATH=${ST_HOME}/node-v7.7.1-linux-x64/bin:${ST_HOME}/scala-2.12.0/bin:$PATH
 #sql
-export PATH=/home/liu/Codes/SQL/redis-3.2.8/src:${ST_HOME}/mongodb-linux-x86_64-ubuntu1604-3.4.2/bin:$PATH
+export PATH=/home/liu/Codes/SQL/redis-3.2.8/src:${ST_HOME}/mongodb-linux-x86_64-ubuntu1604-3.4.2/bin:/home/liu/install/nginx/sbin:$PATH
 export SDKMAN_DIR="/home/liu/.sdkman"
 [[ -s "/home/liu/.sdkman/bin/sdkman-init.sh" ]] && source "/home/liu/.sdkman/bin/sdkman-init.sh"

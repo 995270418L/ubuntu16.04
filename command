@@ -3,6 +3,14 @@
 UBUNTU usage
 
 ----------------------------------------
+sudo lsof -i :9000         # 查看9000端口的信息
+netstat -anptl | grep ':8080'  #查看正在监听的8080端口
+
+adduser liu                 # 增加用户
+
+usermod -a -G sudo liu      #将用户liu添加到sudo权限组
+
+sudp dpkg-reconfigure tzdata   #更改时区(GMT+8.0)中国
 
 sudo service nginx start     #start nginx
 
@@ -14,7 +22,7 @@ nginx -t -c /etc/nginx/nginx.conf   #test the nginx configure file
 
 rfkill list all              #list all wlan device message
 
-rfkill unblocked all         #start all devices
+rfkill unblocked all         #unblocked all devices
 
 sudo service network-manager restart   #restart the network managun 
 
@@ -63,7 +71,14 @@ gnome shell 需要使用shirt + ctrl + v 来替代ctrl + v进行复制的行为
 
 ubuntu下读取windows盘问题(挂载失败):
 	首先需要创建一个盘符待挂载，一般都是/media/username/yy，yy指windows的盘符，
-	使用命令 mount -t ntfs-3g /dev/sdax /media/username/yy -o force 若显示unsafe state，使用-ro替换-o 
+	使用命令 mount -t ntfs-3g /dev/sdax /me
+	dia/username/yy -o force 若显示unsafe state，使用-ro替换-o 
+
+sudo apt dist-upgrade    # 为系统上的软件升级
+
+find / -name *s*         #find命令查找根目录下包含s的文件
+
+ifconfig wlp2s0:0 192.169.1.1 netmask 255.255.0.0 up #设置电脑ip别名
 
 --------------------------------------------------
 
@@ -96,6 +111,24 @@ Server
 ip:123.207.145.161
 netstat -n -p TCP | grep SYN_RECV   #检测服务器是否被syn(DDOS)攻击,原理是通过检测SYN_RECV的状态来决定的
 
+nginx path prefix: "/usr/local/nginx"
+nginx binary file: "/usr/local/nginx/sbin/nginx"
+nginx modules path: "/usr/local/nginx/modules"
+nginx configuration prefix: "/usr/local/nginx/conf"
+nginx configuration file: "/usr/local/nginx/conf/nginx.conf"
+nginx pid file: "/usr/local/nginx/logs/nginx.pid"
+nginx error log file: "/usr/local/nginx/logs/error.log"
+nginx http access log file: "/usr/local/nginx/logs/access.log"
+nginx http client request body temporary files: "client_body_temp"
+nginx http proxy temporary files: "proxy_temp"
+nginx http fastcgi temporary files: "fastcgi_temp"
+nginx http uwsgi temporary files: "uwsgi_temp"
+nginx http scgi temporary files: "scgi_temp"
+
+sudo apt-get autoremove --purge nginx nginx-common nginx-core && sudo rm -rf /var/www/html
+   # 重新安装nginx时需要做的准备，否则会发生错误
+
+sudo ldconfig        #shadowsocksr 启用chacha20加密支持
 ---------------------------------------------
 
 Java Command
@@ -127,3 +160,42 @@ Ctrl + Alt + Shift + T   弹出重构菜单
 Alt + Delete  安全删除
 Ctrl + Alt + N 内联
 Ctrl + o  override方法
+
+---------------------------------------------------------------------------
+
+Git usage
+
+---------------------------------------------------------------------------
+git init   #初始化
+git add . 　#全部添加
+git commit -m " content"   #commit
+git remote add origin git@github.com:995270418L/$repository_name    #添加远程仓库
+git push -u origin master   # push local file into remote server 
+touch .gitignore             #create .ignorefile
+
+---------------------------------------------------------------------------
+
+chrome usage
+
+-----------------------------------------------------------------------------
+ctrl+shift+t      #撤销已关闭网页
+chrome://net-internals            #debug模式
+
+--------------------------------------------------------------------------------
+
+Shadowsocks 
+
+--------------------------------------------------------------------------------
+
+ssserver -c /配置文件地址 -d start
+ssserver -c /配置文件地址 -d stop
+
+-------------------------------------------------------------------------------
+
+Node
+
+-------------------------------------------------------------------------------
+
+cnpm install   # 使用淘宝的cnpm 安装项目下的packge.json 中的node模块
+cnpm i install module_name  --save-dev   # 安装开发模块 去掉--save-dev就不是dev模式的模块了
+
